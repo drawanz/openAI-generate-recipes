@@ -12,7 +12,7 @@ class Main:
         self.dish = dish
 
     
-    def main(self):
+    def create_dish(self):
         reponse = openai.Completion.create(
             engine = 'text-davinci-003',
             prompt = self.dish,
@@ -20,3 +20,12 @@ class Main:
             max_tokens = 512,
         )
         return reponse['choices'][0]['text']
+    
+
+    def create_image_from_title(self, title: str):
+        response = openai.Image.create(
+        prompt=title,
+        n=1,
+        size="512x512"
+        )
+        return response['data'][0]['url']

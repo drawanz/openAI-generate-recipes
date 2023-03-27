@@ -7,5 +7,3 @@ class Input:
         return incoming_input.strip()
     
     
-    def create_image_from_title(title: str):
-        pass
